@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-12">Formulário</div>
+
+  <div class="col-6">
+
+
+
+
+  </div>
+</div>
+<form [formGroup]="FrmCadastro" (ngSubmit)="GravaCadastro()">
+  <div class="row">
+    <div class="col-6">
+
+
+      <div class="p-field">
+        <label>Nome</label>
+        <input type="text" [ngClass]="{ 'ng-invalid ng-dirty':  FrmCadastro.controls.Nome.errors }" pInputText
+          formControlName="Nome" />
+        <small *ngIf="FrmCadastro.controls.Nome.errors" class="p-error">Nome Obrigatório</small>
+      </div>
+
+      <div class="p-field">
+        <label>Idade</label>
+        <input type="text" [ngClass]="{ 'ng-invalid ng-dirty':  FrmCadastro.controls.Idade.errors }" pInputText
+          formControlName="Idade" />
+        <small *ngIf="FrmCadastro.controls.Idade.errors" class="p-error">Idade entre 10 e 100</small>
+      </div>
+
+      <div class="p-field">
+        <label>Observacao</label>
+        <input type="text" pInputText formControlName="Observacao" />
+      </div>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 text-end" style="margin-top: 10px;">
+      <button class="btn btn-primary" [disabled]="!FrmCadastro.valid" type="submit">Grava</button>
+    </div>
+
+  </div>
+</form>
